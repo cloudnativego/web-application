@@ -28,15 +28,3 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/api/test", testHandler(formatter)).Methods("GET")
 	mx.PathPrefix("/").Handler(http.FileServer(http.Dir("./assets/")))
 }
-
-type sampleContent struct {
-	ID      string `json:"id"`
-	Content string `json:"content"`
-}
-
-func testHandler(formatter *render.Render) http.HandlerFunc {
-
-	return func(w http.ResponseWriter, req *http.Request) {
-		formatter.JSON(w, http.StatusOK, sampleContent{ID: "8675309", Content: "Hello from Go!"})
-	}
-}
