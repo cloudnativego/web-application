@@ -26,5 +26,7 @@ func NewServer() *negroni.Negroni {
 
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/api/test", testHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/cookies/write", cookieWriteHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/cookies/read", cookieReadHandler(formatter)).Methods("GET")
 	mx.PathPrefix("/").Handler(http.FileServer(http.Dir("./assets/")))
 }
