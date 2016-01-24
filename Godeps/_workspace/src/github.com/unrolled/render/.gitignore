@@ -21,5 +21,7 @@ _testmain.go
 
 *.exe
 *.test
-*.prof
-/web-application
+
+
+*.pem
+.DS_Store
