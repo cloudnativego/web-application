@@ -36,7 +36,7 @@ deploy:
    - internal/docker-push:
        username: $USERNAME
        password: $PASSWORD
-       cmd: /pipeline/source/web-application
+       cmd: WEBROOT=/pipeline/source /pipeline/source/web-application
        port: "8080"
        tag: v1
        repository: cloudnativego/web-application
