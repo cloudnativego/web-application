@@ -37,6 +37,7 @@ deploy:
        username: $USERNAME
        password: $PASSWORD
        cmd: /pipeline/source/web-application
+       working-dir: /pipeline/source/
        port: "8080"
        tag: v1
        repository: cloudnativego/web-application
