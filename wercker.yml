@@ -10,20 +10,22 @@ build:
         code: |
           cd $WERCKER_SOURCE_DIR
           go version
-          go get -u github.com/tools/godep
+          go get -u github.com/Masterminds/glide
+          go get -u github.com/cloudnativego/cf-tools/vcapinate
           export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+          glide install
 
     # Build the project
     - script:
         name: go build
         code: |
-          godep go build ./...
+          go build
 
     # Test the project
     - script:
         name: go test
         code: |
-          godep go test -v ./...
+          go test -v $(glide novendor)
 
     - script:
         name: copy files to wercker output
@@ -39,6 +41,6 @@ deploy:
        cmd: /pipeline/source/web-application
        working-dir: /pipeline/source/
        port: "8080"
-       tag: v1
+       tag: latest
        repository: cloudnativego/web-application
        registry: https://registry.hub.docker.com
