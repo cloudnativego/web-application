@@ -4,6 +4,14 @@
 A simple illustration of a web application that hosts static content as well as facilitates some
 JavaScript AJAX style consumption of a service hosted in Go.
 
+To run this application locally:
+
+* `glide install` to populate your local `vendor/` directory.
+* `go build`
+* `./web-application`
+
+To run it as a docker image, `docker run -p 8100:8100 cloudnativego/web-application:latest`
+
 | Resource | Method | Description |
 |---|---|---|
 | / | GET | Home page (index.html) |
