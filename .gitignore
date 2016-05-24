@@ -6,6 +6,8 @@
 # Folders
 _obj
 _test
+_temp
+_cache
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -23,3 +25,4 @@ _testmain.go
 *.test
 *.prof
 /web-application
+/vendor
